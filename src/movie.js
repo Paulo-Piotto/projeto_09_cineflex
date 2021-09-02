@@ -1,7 +1,7 @@
 export default function Movie({movie}){
     return (
         <div className='movie-banner'>
-            <img src={movie.img} alt='' />
+            <img src={movie.posterURL} alt='' />
         </div>
     );
 }
