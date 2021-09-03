@@ -21,7 +21,7 @@ header{
     background-color: #C3CFD9;
 }
 
-.movie-list{
+.main-container{
     margin-top: 67px;
     display: flex;
     flex-direction: column;
@@ -60,4 +60,55 @@ header{
     height: 193px;
 }
 
+.session{
+    width: 90%;
+}
+
+.session p{
+    font-size: 20px;
+}
+
+.buttons-list{
+    margin: 25px 0 25px 0;
+}
+
+.buttons-list button{
+    width: 83px;
+    height: 43px;
+    color: white;
+    background-color: #E8833A;
+    border-radius: 3px;
+    border: none;
+    font-size: 18px;
+    margin-right: 9px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 117px;
+    display: flex;
+    align-items: center;
+    background-color: #DFE6ED;
+    border-top: solid 1px #9EADBA;
+    font-size: 26px;
+    padding: 10px;
+}
+
+.footer-banner{
+    width: 64px;
+    height: 89px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px;
+}
+
+.footer-banner img{
+    width: 48px;
+    height: 72px;
+}
 

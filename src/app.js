@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MovieList from "./movieList";
 import Header from  './header'
+import MovieSessions from "./movieSessions";
 
 
 export default function App(){
@@ -8,7 +9,16 @@ export default function App(){
         <BrowserRouter>
             <Header />
 
-            <MovieList />
+            <Switch>
+                <Route path='/' exact>
+                    <MovieList />
+                </Route>
+                <Route path='/sessions/:movieId'>
+                    <MovieSessions />
+                </Route>
+                
+            </Switch>
+                
             
 
         </BrowserRouter>

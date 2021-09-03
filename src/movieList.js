@@ -13,7 +13,7 @@ export default function MovieList(){
 
         
     return(
-        <div className='movie-list'>
+        <div className='main-container'>
             <p className='title'>Selecione o filme</p>
             <section className='movies'>
                 {allMovies.map((movie, index) => <Movie movie={movie} key={index} />)}
