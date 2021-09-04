@@ -1,11 +1,27 @@
-export default function Session(){
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+export default function Session({day}){
+
     return (
         <div className='session'>
-            <p>Quinta-feira - 24/06/2021</p>
+            <p>{`${day.weekday} - ${day.date}`}</p>
             <div className='buttons-list'>
-                <button>15:00</button>
-                <button>15:00</button>
+                {day.showtimes.map((session) => (
+                    <Button session={session} key={session.id}/>
+                ))}
+                
             </div>
         </div>
+    );
+}
+
+function Button({session}){
+
+    return(
+        <Link to={`/seats/${session.id}`} >
+            <button>{`${session.name}`}</button>
+        </Link>
+        
     );
 }

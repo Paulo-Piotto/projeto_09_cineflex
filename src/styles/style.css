@@ -17,8 +17,9 @@ header{
     justify-content: center;
     align-items: center;
     color: #E8833A;
-    font-size: 34px;
+    font-size: 50px;
     background-color: #C3CFD9;
+    font-family: 'Teko', sans-serif;
 }
 
 .main-container{
@@ -95,6 +96,13 @@ footer{
     border-top: solid 1px #9EADBA;
     font-size: 26px;
     padding: 10px;
+}
+
+footer p{
+    max-width: 18ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .footer-banner{
