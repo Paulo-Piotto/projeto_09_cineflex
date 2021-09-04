@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MovieList from "./movieList";
 import Header from  './header'
 import MovieSessions from "./movieSessions";
+import Seats from "./seats";
 
 
 export default function App(){
@@ -19,7 +20,7 @@ export default function App(){
                 </Route>
                 
                 <Route path='/seats/:sessionId' exact >
-                    <h1>teste</h1>
+                    <Seats />
                 </Route>
             </Switch>
                 
