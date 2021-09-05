@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { select } from "async";
+import { useState } from "react";
 
-export default function Seat({seat, setOrder, order, setBuyer}){
+export default function Seat({seat, setOrder, order, chairs, setChairs, setBuyer}){
 
     const [selected, setSelected] = useState('free');
 
@@ -11,11 +10,14 @@ export default function Seat({seat, setOrder, order, setBuyer}){
             if(selected === 'free'){
                 setSelected('selected');
                 setOrder(() => ([...order, seat.id]))
+                setChairs(() => ([...chairs, seat.name]))
                 setBuyer({name: '', cpf: ''});
             }else {
                 setSelected('free');
                 setOrder(order.filter((el) => 
                 el === seat.id ? false : true))
+                setChairs(chairs.filter((el) => 
+                el === seat.name ? false : true))
                 setBuyer({name: '', cpf: ''});
             }
         }else{

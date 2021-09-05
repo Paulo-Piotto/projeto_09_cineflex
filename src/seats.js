@@ -6,22 +6,21 @@ import Demonstration from "./demonstration";
 import Inputs from "./inputs";
 import Footer from "./footer";
 import Seat from "./seat";
+import OrderButton from "./orderButton";
 
-export default function Seats(){
+export default function Seats({buyer, setBuyer, chairs, setChairs}){
     const [seats, setSeats] = useState(null);
     const [order, setOrder] = useState([]);
-    const [buyer, setBuyer] = useState({name: '', cpf: ''})
+    
 
     const sessionId = useParams().sessionId;
+    const [link, setLink] = useState(`/seats/${sessionId}`)
 
     useEffect(() => (
         axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${sessionId}/seats`)
             .then((resp) => setSeats({...resp.data}))
     ), [])
-
-    function teste(){
-        console.log(buyer);
-    }
+    
 
     return(
         <div className='main-container'>
@@ -33,6 +32,8 @@ export default function Seats(){
                 seat={seat} 
                 setOrder={setOrder}
                 order={order}
+                chairs={chairs}
+                setChairs={setChairs}
                 setBuyer={setBuyer}
                 />
             ) )
@@ -43,8 +44,13 @@ export default function Seats(){
             buyer={buyer}
             setBuyer={setBuyer}
             order={order}
+            link={link}
+            setLink={setLink}
+            sessionId={sessionId}
             />
-            <Button onClick={teste}>Reservar assento(s)</Button>
+
+            <OrderButton buyer={buyer} sessionId={sessionId} setBuyer={setBuyer} chairs={chairs} />
+            
             {seats ? <Footer movieData={seats.movie} session={seats} />
             : <p>Carregando...</p>}
 
@@ -58,16 +64,4 @@ const AllSeats = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-`
-
-const Button = styled.button`
-    width: 225px;
-    height: 42px;
-    background-color: #E8833A;
-    color: white;
-    border-radius: 3px;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    margin: 45px 0 147px 0;
 `

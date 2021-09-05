@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export default function Inputs({buyer, setBuyer, order}){
+export default function Inputs({buyer, setBuyer, order, link, setLink, sessionId}){
+
 
     function buyerData(event){
         if(buyer.ids){
@@ -18,6 +19,7 @@ export default function Inputs({buyer, setBuyer, order}){
             }
         }
     }
+
 
     return(
         <InputsContainer>
