@@ -8,9 +8,9 @@ import Footer from "./footer";
 import Seat from "./seat";
 
 export default function Seats(){
-    const [selected, setSelected] = useState('free');
     const [seats, setSeats] = useState(null);
-    const [buyer, setBuyer] = useState({});
+    const [order, setOrder] = useState([]);
+    const [buyer, setBuyer] = useState({name: '', cpf: ''})
 
     const sessionId = useParams().sessionId;
 
@@ -19,20 +19,32 @@ export default function Seats(){
             .then((resp) => setSeats({...resp.data}))
     ), [])
 
-    // console.log(seats);
+    function teste(){
+        console.log(buyer);
+    }
 
     return(
         <div className='main-container'>
             <p className='title'>Selecione o(s) assento(s)</p>
             <AllSeats>
             {seats ? seats.seats.map( (seat) => (
-                <Seat seat={seat} />
+                <Seat 
+                key={seat.id} 
+                seat={seat} 
+                setOrder={setOrder}
+                order={order}
+                setBuyer={setBuyer}
+                />
             ) )
             : <p>Carregando...</p>}
             </AllSeats>
             <Demonstration />
-            <Inputs />
-            <Button>Reservar assento(s)</Button>
+            <Inputs 
+            buyer={buyer}
+            setBuyer={setBuyer}
+            order={order}
+            />
+            <Button onClick={teste}>Reservar assento(s)</Button>
             {seats ? <Footer movieData={seats.movie} session={seats} />
             : <p>Carregando...</p>}
 
@@ -46,19 +58,6 @@ const AllSeats = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    li{
-        width: 26px;
-        height: 26px;
-        border-radius: 12px;
-        background-color: #C3CFD9;
-        font-size: 11px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #808F9D;
-        margin: 6px 3px;
-    }
 `
 
 const Button = styled.button`

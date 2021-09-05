@@ -22,6 +22,10 @@ export default function App(){
                 <Route path='/seats/:sessionId' exact >
                     <Seats />
                 </Route>
+
+                <Route path='/finished'>
+                    
+                </Route>
             </Switch>
                 
             

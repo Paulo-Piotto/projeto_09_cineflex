@@ -1,13 +1,31 @@
 import styled from "styled-components";
 
-export default function Inputs(){
+export default function Inputs({buyer, setBuyer, order}){
+
+    function buyerData(event){
+        if(buyer.ids){
+            if(event.target.name === 'name'){
+                setBuyer(() => ({...buyer, name: event.target.value}
+                ));
+            }else {
+                setBuyer({...buyer, cpf: event.target.value});
+            }
+        }else{
+            if(event.target.name === 'name'){
+                setBuyer({...buyer, ids: order, name: event.target.value});
+            }else {
+                setBuyer({...buyer, ids: order, cpf: event.target.value});
+            }
+        }
+    }
+
     return(
         <InputsContainer>
             <p>Nome do comprador:</p>
-            <input type='text' placeholder='digite seu nome...'></input>
+            <input value={buyer.name} name='name' onChange={buyerData} type='text' placeholder='digite seu nome...'></input>
 
             <p>CPF do comprador:</p>
-            <input type='text' placeholder='digite seu CPF...'></input>
+            <input value={buyer.cpf} name='cpf' onChange={buyerData} type='text' placeholder='digite seu CPF...'></input>
         </InputsContainer>
     );
 }
