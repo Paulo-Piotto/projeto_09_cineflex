@@ -30,6 +30,8 @@ Tabela de conteúdos
    * [Autor](#-autor)
 <!--te-->
 
+<img src="./public/assets/peekCineflex.gif" width="250px"/>
+
 
 ## 💻 Sobre o projeto
 <br>
@@ -74,6 +76,8 @@ O layout da aplicação está disponível no Figma:
 Este projeto consiste apenas na versão frontend mobile do web app Cineflex.
 
 💡Para funcionar adequadamente o app consome uma API desenvolvida pela equipe da Driven, por essa razão caso eventualmente a API esteja fora do ar, o app não funcionará!
+
+O app também está disponível no [link](https://projeto-09-cineflex-two.vercel.app)
 
 ### Pré-requisitos
 
