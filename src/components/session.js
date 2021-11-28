@@ -1,26 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-export default function Session({day}){
+export default function Session({ day }) {
+  return (
+    <div className="session">
+      <p>{`${day.weekday} - ${day.date}`}</p>
+      <div className="buttons-list">
+        {day.showtimes.map((session) => (
+          <Button session={session} key={session.id} />
+        ))}
 
-    return (
-        <div className='session'>
-            <p>{`${day.weekday} - ${day.date}`}</p>
-            <div className='buttons-list'>
-                {day.showtimes.map((session) => (
-                    <Button session={session} key={session.id}/>
-                ))}
-                
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-function Button({session}){
+function Button({ session }) {
+  return (
+    <Link to={`/seats/${session.id}`}>
+      <button type="button">{`${session.name}`}</button>
+    </Link>
 
-    return(
-        <Link to={`/seats/${session.id}`} >
-            <button>{`${session.name}`}</button>
-        </Link>
-        
-    );
+  );
 }

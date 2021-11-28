@@ -1,22 +1,22 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export default function Demonstration(){
-    return(
-        <DemonstrationContainer>
-                <Demo color='#8DD7CF'>
-                    <div></div>
-                    <p>Selecionado</p>
-                </Demo>
-                <Demo color='#C3CFD9'>
-                    <div></div>
-                    <p>Disponível</p>
-                </Demo>
-                <Demo color='#FBE192'>
-                    <div></div>
-                    <p>Indisponível</p>
-                </Demo>
-            </DemonstrationContainer>
-    );
+export default function Demonstration() {
+  return (
+    <DemonstrationContainer>
+      <Demo color="#8DD7CF">
+        <div />
+        <p>Selecionado</p>
+      </Demo>
+      <Demo color="#C3CFD9">
+        <div />
+        <p>Disponível</p>
+      </Demo>
+      <Demo color="#FBE192">
+        <div />
+        <p>Indisponível</p>
+      </Demo>
+    </DemonstrationContainer>
+  );
 }
 
 const DemonstrationContainer = styled.ul`
@@ -24,7 +24,7 @@ const DemonstrationContainer = styled.ul`
     display: flex;
     justify-content: space-around;
     font-size: 13px;
-`
+`;
 
 const Demo = styled.li`
     display: flex;
@@ -40,4 +40,4 @@ const Demo = styled.li`
         background-color: ${(props) => props.color};
         margin-bottom: 5px;
     }
-`
+`;

@@ -1,35 +1,30 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export default function Inputs({buyer, setBuyer, order, link, setLink, sessionId}){
-
-
-    function buyerData(event){
-        if(buyer.ids){
-            if(event.target.name === 'name'){
-                setBuyer(() => ({...buyer, name: event.target.value}
-                ));
-            }else {
-                setBuyer({...buyer, cpf: event.target.value});
-            }
-        }else{
-            if(event.target.name === 'name'){
-                setBuyer({...buyer, ids: order, name: event.target.value});
-            }else {
-                setBuyer({...buyer, ids: order, cpf: event.target.value});
-            }
-        }
+export default function Inputs({ buyer, setBuyer, order }) {
+  function buyerData(event) {
+    if (buyer.ids) {
+      if (event.target.name === 'name') {
+        setBuyer(() => ({ ...buyer, name: event.target.value }
+        ));
+      } else {
+        setBuyer({ ...buyer, cpf: event.target.value });
+      }
+    } else if (event.target.name === 'name') {
+      setBuyer({ ...buyer, ids: order, name: event.target.value });
+    } else {
+      setBuyer({ ...buyer, ids: order, cpf: event.target.value });
     }
+  }
 
+  return (
+    <InputsContainer>
+      <p>Nome do comprador:</p>
+      <input value={buyer.name} name="name" onChange={buyerData} type="text" placeholder="digite seu nome..." />
 
-    return(
-        <InputsContainer>
-            <p>Nome do comprador:</p>
-            <input value={buyer.name} name='name' onChange={buyerData} type='text' placeholder='digite seu nome...'></input>
-
-            <p>CPF do comprador:</p>
-            <input value={buyer.cpf} name='cpf' onChange={buyerData} type='text' placeholder='digite seu CPF...'></input>
-        </InputsContainer>
-    );
+      <p>CPF do comprador:</p>
+      <input value={buyer.cpf} name="cpf" onChange={buyerData} type="text" placeholder="digite seu CPF..." />
+    </InputsContainer>
+  );
 }
 
 const InputsContainer = styled.div`
@@ -51,4 +46,4 @@ const InputsContainer = styled.div`
     input::placeholder{
         font-style: italic;
     }
-`
+`;

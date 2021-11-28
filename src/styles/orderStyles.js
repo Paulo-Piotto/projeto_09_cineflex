@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Title = styled.p`
     width: 60%;
@@ -9,23 +9,23 @@ const Title = styled.p`
     color: #247A6B;
     font-weight: bold;
     text-align: center;
-`
+`;
 
 const DataContainer = styled.div`
     width: 90vw;
     margin-bottom: 40px;
-`
+`;
 
 const SubTitle = styled.p`
     font-weight: bold;
     margin-bottom: 10px;
 
-`
+`;
 
 const Data = styled.p`
         margin-bottom: 8px;
         font-size: 22px;
-`
+`;
 
 const Button = styled.button`
     width: 225px;
@@ -37,12 +37,12 @@ const Button = styled.button`
     outline: none;
     font-size: 18px;
     margin: 45px 0 60px 0;
-`
+`;
 
-export{
-    Title,
-    DataContainer,
-    SubTitle,
-    Data,
-    Button,
-}
+export {
+  Title,
+  DataContainer,
+  SubTitle,
+  Data,
+  Button,
+};
